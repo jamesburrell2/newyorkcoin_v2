@@ -84,11 +84,14 @@ itself a fork of [Bitcoin Core](https://github.com/bitcoin/bitcoin).
    period within that window to lock in.  The signaling window opens at block
    15,000,000 (estimated ~Dec 2026).
 
-#### Planned
-
 10. **Atomic Swaps** — cross-chain atomic swaps with Bitcoin, Litecoin, and other
-   HTLC-compatible chains, enabling trustless peer-to-peer NYC exchanges without
-   a centralised intermediary.
+    HTLC-compatible chains, enabling trustless peer-to-peer NYC exchanges without
+    a centralised intermediary.  A CSV-based HTLC swap tool is available in
+    [`contrib/atomicswap/`](contrib/atomicswap/README.md) and tested end-to-end on
+    regtest.  It requires CSV, which is enforced from block 13,000,000.  (CLTV is
+    not used because BIP65 is not enforced on NYC mainnet.)  Mainnet trials are pending.
+
+#### Planned
 
 11. **NYC Ordinals** — an ordinals/inscription protocol for the NYC chain,
     analogous to Bitcoin Ordinals. NYC's 30-second blocks and low fees make it
@@ -355,7 +358,7 @@ OP_RETURN  (or anywhere in scriptSig)
 | DNS seed servers | ⚠️ Offline — use `addnode` |
 | Checkpoints | 🔲 Planned |
 | Rosetta API | ✅ **Deployed** — `https://rosetta.paywith.nyc` (External RPC mode) |
-| Atomic Swaps | 🔲 Planned |
+| Atomic Swaps | 🔜 Tool ready ([`contrib/atomicswap`](contrib/atomicswap/README.md)); needs CSV (block 13M) |
 | NYC Ordinals | 🔲 Planned |
 | SegWit activation | 🔜 Scheduled — block **13,500,000** (~Sep 2026) |
 | Taproot activation | 🔜 Scheduled — BIP9 bit 2 signaling blocks **14M–16M** (~Nov 2026+) |
